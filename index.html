@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneros de Coronel Pringles 1870-1903</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .text-brown-custom {
+            color: #4b3829;
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 700px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #message-modal .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 400px;
+            text-align: center;
+        }
+        #message-modal h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Encabezado con fondo naranja -->
+     <header class="bg-[#e45d17] text-white p-4 md:p-8 shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight">PIONEROS DE CORONEL PRINGLES I</h1>
+            <p class="mt-2 md:mt-0 text-xl md:text-2xl font-bold">1870 - 1903</p>
+        </div>
+    </header>
+
+    <!-- Sección principal del libro y promoción -->
+    <main class="container mx-auto py-8 px-4 md:px-0">
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-10 mb-8 md:flex md:items-center">
+            <div class="md:w-1/2">
+                <img src="https://imgur.com/J8zEWjP.jpg" alt="Portada del libro 'Pioneros de Coronel Pringles'" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="md:w-1/2 md:pl-12 mt-6 md:mt-0">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown-custom">Una obra de Cristina A. Bottini</h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                    El primero de los 7 libros que componen la obra "Pioneros de Coronel Pringles" (letras A y B).
+                    En este libro se encuentran reunidos los apellidos que pertenecieron a quienes dejaron documentación que acreditó su paso o destino definitivo en el territorio del actual Partido de Coronel Pringles, entre 1870 hasta 1903.
+                </p>
+                <div class="mt-6 flex flex-col md:flex-row items-center md:justify-start space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="text-center">
+                        <p class="text-4xl font-extrabold text-[#e45d17]">$37.000</p>
+                        <p class="text-sm font-semibold text-gray-500">Precio del libro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Edición para coleccionistas y código QR -->
+        <div class="flex flex-col md:flex-row justify-between items-center bg-[#f4e2c8] rounded-xl shadow-lg p-6 md:p-10 mb-8">
+            <div class="md:w-2/3 text-center md:text-left">
+                <h3 class="text-2xl md:text-3xl font-bold text-brown-custom">Una Edición para Coleccionistas</h3>
+                <p class="mt-2 md:mt-4 text-lg leading-relaxed">
+                    Recordá que de toda esta obra solo se publicarán 3000 libros en castellano y no se difundirá en formato virtual.
+                    <br>
+                    <span class="font-bold text-[#e45d17]">Solo 3000 personas poseerán la historia de los Pioneros.</span>
+                </p>
+            </div>
+            <div class="md:w-1/3 mt-6 md:mt-0 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                <div class="text-center">
+                    <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" class="block hover:scale-110 transition-transform duration-300" target="_blank">
+                        <img src="https://imgur.com/i97na4a.jpg" alt="Código QR Mercado Libre" class="w-32 h-32 rounded-lg border-2 border-gray-300 p-1">
+                        <p class="mt-2 text-sm font-semibold">Facebook</p>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" class="block hover:scale-110 transition-transform duration-300" target="_blank">
+                        <img src="https://imgur.com/tRYqDpP.jpg" alt="Código QR Facebook" class="w-32 h-32 rounded-lg border-2 border-gray-300 p-1">
+                        <p class="mt-2 text-sm font-semibold">Mercado libre</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de firma de visitantes -->
+        <section id="firma" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center">Deja tu Firma y país</h3>
+            <p class="mt-2 text-center text-gray-600">Nos encantaría saber que visitaste la página.</p>
+            <form id="signature-form" class="mt-6 space-y-4">
+                <input type="text" id="signature-input" placeholder="Tu Nombre y país" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e45d17]">
+                <button type="submit" class="w-full bg-[#e45d17] text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300">
+                    Firmar
+                </button>
+                <button type="button" id="view-signatures-btn" class="w-full bg-gray-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300">
+                    Ver firmas
+                </button>
+            </form>
+        </section>
+
+        <!-- Sección de preguntas e intereses -->
+        <section id="comentarios" class="bg-white rounded-xl shadow-lg p-6 md:p-10">
+            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center">Preguntas, Intereses y Observaciones</h3>
+            <p class="mt-2 text-center text-gray-600">¿Tienes alguna pregunta sobre la investigación, te interesa un apellido en particular o quieres compartir una observación? Este es tu espacio.</p>
+            <!-- Formulario con el nuevo endpoint de Formspree para enviar a ambos correos. -->
+            <form id="comment-form" action="https://formspree.io/f/xandnnvn" method="POST" class="mt-6 space-y-4">
+                <!-- El campo `_replyto` le dice a Formspree a dónde responder. -->
+                <input type="email" name="email" placeholder="Tu Correo (opcional)" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e45d17]">
+                <!-- El campo `name` será el que se vea en el correo. -->
+                <input type="text" name="name" placeholder="Tu Nombre (opcional)" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e45d17]">
+                <!-- El campo `message` es el contenido del comentario. -->
+                <textarea rows="5" name="message" placeholder="Tus comentarios..." class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e45d17]"></textarea>
+                <button type="submit" class="w-full bg-[#e45d17] text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300">
+                    Enviar
+                </button>
+            </form>
+        </section>
+        
+        <!-- Sección de imágenes de los códigos QR grandes y la carátula -->
+        <div class="flex flex-col items-center mt-8 space-y-8">
+            <div class="text-center">
+                <!-- Imagen del código QR grande con evento de click y tamaño aumentado -->
+                <img id="qrImg" src="https://imgur.com/1jjzucw.jpg" alt="Código QR Grande Mercado Libre" class="w-full md:max-w-2xl rounded-lg shadow-lg border-4 border-gray-300 cursor-pointer hover:scale-105 transition-transform duration-300">
+                <p class="mt-4 text-xl font-bold"></p>
+            </div>
+
+            <!-- Texto insertado aquí -->
+            <div class="text-center mt-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-brown-custom">PIONEROS DE CORONEL PRINGLES I<br>1870 - 1903<br>Primera entrega</h3>
+                <p class="mt-4 text-lg leading-relaxed text-gray-700 max-w-2xl mx-auto">
+                    La identidad es una construcción social. Todo individuo construye su identidad a partir de las bases familiares, su entorno más próximo y, finalmente, la sociedad en que está inmerso. Esta construcción no es simplemente la percepción que el individuo tiene de sí mientras está en proceso, sino lo que proyecta en los otros y la aceptación o no de aquello que pretende para sí, por ello lleva tiempo e involucra todo el aspecto sociocultural que rodea a este individuo.
+                    <br><br>
+                    Identidad es sinónimo de pertenencia. La cultura de los pueblos define en gran medida su identidad y su historia la reafirma. Conocer las raíces del sitio en que hemos nacido, a sus pioneros, cómo se emplazaban en sus comienzos sus viviendas, la disposición de sus edificios más importantes, su trabajo, su forma de vida y, sobre todo, sus orígenes y lo que hicieron por ese sitio, es fundamentar las bases de nuestra identidad, cimentarla, y reafirmar el sentido de pertenencia que toda identidad necesita para que el individuo considere poseer un lugar de origen no conceptual simplemente, sino emocional.
+                </p>
+            </div>
+
+            <div class="text-center flex flex-col items-center">
+                <!-- Imagen de la portada del libro grande con evento de click y tamaño aumentado -->
+                <img id="myImg" src="https://imgur.com/vQ0DPKC.jpg" alt="Imagen de la portada del libro grande" class="w-full md:max-w-2xl rounded-lg shadow-lg border-4 border-gray-300 cursor-pointer hover:scale-105 transition-transform duration-300">
+                <p class="mt-4 text-xl font-bold"></p>
+                <!-- Botón de listado A-B -->
+                <a href="https://drive.google.com/file/d/1gjxOYU4XM3SLWIbt_9uTZzrzjc8jyppS/view?usp=drivesdk" target="_blank" class="mt-6 w-full md:w-auto bg-[#e45d17] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300 text-center">
+                    Listado A-B Pioneros I
+                </a>
+            </div>
+        </div>
+        
+        <!-- Galería de imágenes - Sección nueva -->
+        <section id="gallery-section" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mt-8 mb-8" style="display: none;">
+            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center mb-6">Galería de Imágenes</h3>
+            <div id="image-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Las imágenes se cargarán dinámicamente aquí -->
+            </div>
+        </section>
+
+        <!-- Botones de compra y redes sociales -->
+        <div class="flex flex-col md:flex-row justify-center items-center mt-12 space-y-6 md:space-y-0 md:space-x-8">
+            <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" target="_blank" class="w-full md:w-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 text-center">
+                Visita nuestra página de facebook
+            </a>
+            <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" target="_blank" class="w-full md:w-auto bg-[#e45d17] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300 text-center">
+                Compra el libro
+            </a>
+            <!-- Nuevo botón de galería con un ID para JavaScript -->
+            <button id="toggle-gallery-btn" class="w-full md:w-auto bg-gray-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300 text-center">
+                Galería
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Modal para la imagen expandida -->
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgExpanded">
+    </div>
+
+    <!-- Modal para mensajes de alerta y listas -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content text-gray-800">
+            <span class="close-btn absolute top-2 right-4 text-xl font-bold cursor-pointer">&times;</span>
+            <div id="modal-content-text"></div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-white p-4 md:p-8 text-center mt-8">
+        <p>&copy; 2024 Pioneros de Coronel Pringles. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Variables globales para la configuración de Firebase
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // --- Inicialización y Autenticación de Firebase ---
+        let app, db, auth;
+        let unsubscribeSignatures = null; // Para manejar la desuscripción del listener
+
+        async function initializeFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length > 0) {
+                    app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+
+                    // Iniciar sesión con token personalizado o de forma anónima
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                        console.log("Sesión iniciada con token personalizado.");
+                    } else {
+                        await signInAnonymously(auth);
+                        console.log("Sesión iniciada de forma anónima.");
+                    }
+                } else {
+                    console.error("Firebase config está vacío. No se puede inicializar Firebase.");
+                }
+            } catch (error) {
+                console.error("Error al inicializar Firebase:", error);
+            }
+        }
+        
+        // Llamar a la función de inicialización
+        initializeFirebase();
+
+        // --- Lógica de Firestore ---
+
+        // Función para guardar una nueva firma en Firestore
+        async function saveSignature(name) {
+            if (!db) {
+                showMessage("Error: La base de datos no está disponible. Por favor, recarga la página.");
+                return;
+            }
+
+            try {
+                const signaturesCollectionRef = collection(db, `artifacts/${appId}/public/data/signatures`);
+                await addDoc(signaturesCollectionRef, {
+                    name: name,
+                    timestamp: new Date()
+                });
+                showMessage(`¡Gracias por firmar, ${name}! Tu firma ha sido registrada.`);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                showMessage("Error al guardar la firma. Por favor, inténtalo de nuevo.");
+            }
+        }
+
+        // Función para mostrar las firmas en el modal
+        function displaySignatures(signatures) {
+            const modalContent = document.getElementById("modal-content-text");
+            modalContent.innerHTML = ''; // Limpiar contenido anterior
+
+            if (signatures.length === 0) {
+                modalContent.innerHTML = `
+                    <h3 class="text-xl font-bold mb-4">Firmas Registradas</h3>
+                    <p>Aún no hay firmas. ¡Sé el primero en firmar!</p>
+                `;
+            } else {
+                // Ordenar firmas por fecha en orden descendente (las más recientes primero)
+                signatures.sort((a, b) => {
+                    const timeA = a.timestamp ? a.timestamp.seconds : 0;
+                    const timeB = b.timestamp ? b.timestamp.seconds : 0;
+                    return timeB - timeA;
+                });
+
+                const listHTML = signatures.map(sig => {
+                    const date = sig.timestamp ? new Date(sig.timestamp.seconds * 1000).toLocaleDateString() : 'Fecha desconocida';
+                    return `<li class="border-b border-gray-200 py-2 last:border-b-0 text-left">${sig.name} - <span class="text-gray-500 text-sm">${date}</span></li>`;
+                }).join('');
+
+                modalContent.innerHTML = `
+                    <h3 class="text-xl font-bold mb-4">Firmas Registradas</h3>
+                    <ul class="list-none text-left">${listHTML}</ul>
+                `;
+            }
+        }
+
+        // Función para cargar las firmas al abrir el modal y mantener la escucha
+        async function loadAndListenForSignatures() {
+            if (!db) {
+                displaySignatures([]); // Muestra un estado vacío si no hay db
+                return;
+            }
+
+            const signaturesCollectionRef = collection(db, `artifacts/${appId}/public/data/signatures`);
+            
+            // Muestra un estado de carga mientras se obtienen los datos
+            const modalContent = document.getElementById("modal-content-text");
+            modalContent.innerHTML = `
+                <h3 class="text-xl font-bold mb-4">Cargando Firmas...</h3>
+                <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#e45d17] mx-auto"></div>
+            `;
+            
+            // Suscribe al listener de onSnapshot
+            unsubscribeSignatures = onSnapshot(signaturesCollectionRef, (querySnapshot) => {
+                const signatures = [];
+                querySnapshot.forEach((doc) => {
+                    signatures.push(doc.data());
+                });
+                displaySignatures(signatures);
+            }, (error) => {
+                console.error("Error al escuchar firmas:", error);
+                showMessage("Error al cargar las firmas. Por favor, inténtalo de nuevo.");
+            });
+        }
+
+        // --- Lógica de la Interfaz de Usuario y Manejadores de Eventos ---
+
+        // Función para mostrar un mensaje simple en el modal
+        function showMessage(message) {
+            const messageModal = document.getElementById("message-modal");
+            const modalContentText = document.getElementById("modal-content-text");
+            modalContentText.innerHTML = `<p class="p-4">${message}</p>`;
+            messageModal.style.display = "flex";
+        }
+
+        // Modal para expandir imágenes
+        const imageModal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("imgExpanded");
+        const myImg = document.getElementById("myImg");
+        const qrImg = document.getElementById("qrImg");
+        const imageCloseBtn = document.querySelector("#image-modal .close");
+
+        function openImageModal(imageSrc) {
+            imageModal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+
+        myImg.onclick = function() { openImageModal(this.src); };
+        qrImg.onclick = function() { openImageModal(this.src); };
+        imageCloseBtn.onclick = function() { imageModal.style.display = "none"; };
+
+        // Modal para mensajes y lista de firmas
+        const messageModal = document.getElementById("message-modal");
+        const messageCloseBtn = document.querySelector("#message-modal .close-btn");
+
+        messageCloseBtn.onclick = function() {
+            messageModal.style.display = "none";
+            // Desuscribir el listener cuando el modal se cierra
+            if (unsubscribeSignatures) {
+                unsubscribeSignatures();
+                unsubscribeSignatures = null;
+                console.log("Listener de firmas desuscrito.");
+            }
+        };
+
+        window.onclick = function(event) {
+            if (event.target == imageModal) {
+                imageModal.style.display = "none";
+            }
+            if (event.target == messageModal) {
+                messageModal.style.display = "none";
+                // Desuscribir el listener si se cierra al hacer clic fuera
+                if (unsubscribeSignatures) {
+                    unsubscribeSignatures();
+                    unsubscribeSignatures = null;
+                    console.log("Listener de firmas desuscrito.");
+                }
+            }
+        };
+
+        // Manejador para el envío del formulario de firma
+        const signatureForm = document.getElementById('signature-form');
+        signatureForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const signatureInput = document.getElementById('signature-input');
+            const name = signatureInput.value.trim();
+            if (name) {
+                saveSignature(name);
+                signatureInput.value = ''; // Limpiar el campo
+            } else {
+                showMessage('Por favor, ingresa tu nombre y país para firmar.');
+            }
+        });
+
+        // Manejador para el botón "Ver Firmas"
+        const viewSignaturesBtn = document.getElementById('view-signatures-btn');
+        viewSignaturesBtn.addEventListener('click', function() {
+            messageModal.style.display = "flex";
+            loadAndListenForSignatures(); // Carga y activa la escucha al abrir el modal
+        });
+
+        // --- Lógica para la Galería de Imágenes ---
+        const imageGallery = document.getElementById('image-gallery');
+        const gallerySection = document.getElementById('gallery-section');
+        const toggleGalleryBtn = document.getElementById('toggle-gallery-btn');
+        const galleryImages = [
+            "https://imgur.com/NBFwmhC.jpg",
+            "https://imgur.com/RZvP7QG.jpg",
+            "https://imgur.com/xpfrgOk.jpg",
+            "https://imgur.com/fFuzyVF.jpg",
+            "https://imgur.com/iKzwoS9.jpg",
+            "https://imgur.com/Pcam8Am.jpg",
+            "https://imgur.com/BIwWi16.jpg",
+            "https://imgur.com/t11Hgf1.jpg",
+            "https://imgur.com/MncBGxS.jpg",
+            "https://imgur.com/YVxUA3D.jpg",
+            "https://imgur.com/Mm1MvL2.jpg",
+            "https://imgur.com/WGcfDCP.jpg",
+            "https://imgur.com/fRzGEzR.jpg",
+            "https://imgur.com/pebg67b.jpg",
+            "https://imgur.com/aSjCdb2.jpg"
+        ];
+
+        // Cargar y mostrar las imágenes de la galería
+        function loadGalleryImages() {
+            imageGallery.innerHTML = ''; // Limpiar galería antes de cargar
+            galleryImages.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = "Imagen de la galería del libro";
+                img.className = "w-full h-auto rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300";
+                img.onclick = () => openImageModal(img.src);
+                imageGallery.appendChild(img);
+            });
+        }
+        
+        // Manejador para el botón de galería (toggle)
+        toggleGalleryBtn.addEventListener('click', function() {
+            if (gallerySection.style.display === "none") {
+                gallerySection.style.display = "block";
+                toggleGalleryBtn.textContent = "Cerrar Galería";
+                // Desplazarse a la galería para que el usuario la vea
+                gallerySection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                gallerySection.style.display = "none";
+                toggleGalleryBtn.textContent = "Galería";
+            }
+        });
+
+        // Llamar a la función para cargar las imágenes cuando la página esté lista
+        window.addEventListener('load', loadGalleryImages);
+
+        // --- Nuevo Manejador para el formulario de comentarios ---
+        const commentForm = document.getElementById('comment-form');
+        commentForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = new FormData(form);
+            const action = form.action;
+
+            // Mostrar un mensaje de "Enviando..."
+            showMessage("Enviando mensaje...");
+
+            try {
+                const response = await fetch(action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showMessage("¡Mensaje enviado con éxito!");
+                    form.reset(); // Limpia los campos del formulario
+                } else {
+                    const errorData = await response.json();
+                    if (Object.keys(errorData).length > 0) {
+                        const errorMessage = Object.values(errorData).join(", ");
+                        showMessage(`Error al enviar: ${errorMessage}`);
+                    } else {
+                        showMessage("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage("Error de conexión. Por favor, revisa tu conexión a internet.");
+            }
+        });
+    </script>
+</body>
+</html>
