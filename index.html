@@ -58,15 +58,88 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
+        /* Estilos específicos para el dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0; /* Alinea el dropdown a la derecha */
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Estilos para los botones del carrusel en el modal */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,1);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
     <!-- Encabezado con fondo naranja -->
      <header class="bg-[#e45d17] text-white p-4 md:p-8 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight">PIONEROS DE CORONEL PRINGLES I</h1>
-            <p class="mt-2 md:mt-0 text-xl md:text-2xl font-bold">1870 - 1903</p>
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left relative">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight">PIONEROS DE CORONEL PRINGLES I 1870-1903</h1>
+           
+            <!-- Menú desplegable en la esquina superior derecha -->
+            <div class="dropdown absolute top-4 right-4 md:static md:ml-auto">
+                <button class="bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 flex items-center">
+                    Menú
+                    <svg class="ml-2 -mr-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="dropdown-gallery-btn">Galería</a>
+                    <a href="https://drive.google.com/file/d/1gjxOYU4XM3SLWIbt_9uTZzrzjc8jyppS/view?usp=drivesdk" target="_blank">Descarga Listado A-B Pioneros I</a>
+                    <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" target="_blank">Página de Facebook</a>
+                    <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" target="_blank">Compra el libro</a>
+                    <a href="https://www.paypal.com/ncp/payment/PA7EYZ9Z8TE3Y" target="_blank">Haz tu aporte voluntario</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -117,19 +190,20 @@
             </div>
         </div>
 
-        <!-- Sección de firma de visitantes -->
-        <section id="firma" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mb-8">
-            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center">Deja tu Firma y país</h3>
-            <p class="mt-2 text-center text-gray-600">Nos encantaría saber que visitaste la página.</p>
-            <form id="signature-form" class="mt-6 space-y-4">
-                <input type="text" id="signature-input" placeholder="Tu Nombre y país" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e45d17]">
-                <button type="submit" class="w-full bg-[#e45d17] text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300">
-                    Firmar
-                </button>
-                <button type="button" id="view-signatures-btn" class="w-full bg-gray-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300">
-                    Ver firmas
-                </button>
-            </form>
+        <!-- Nueva Sección de Colaboración -->
+        <section id="colaboracion" class="bg-[#fcf7e6] rounded-xl shadow-lg p-6 md:p-10 mb-8 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom mb-4">"La muerte es el olvido"</h3>
+            <p class="mt-2 text-lg leading-relaxed text-gray-700 max-w-2xl mx-auto">
+                Es el lema de esta iniciativa que busca publicar la obra de 7 libros, "Pioneros de Coronel Pringles 1870-1903".
+                Este trabajo hará que más de 15,500 de los primeros habitantes de la zona "revivan" al reunirlos con sus descendientes, preservando su memoria para las futuras generaciones. **Ayúdanos a revivir a los pioneros.**
+                <br><br>
+                Si no puedes comprar el libro o vives fuera del país y quieres ayudar con la publicación de la obra, cualquier aporte es bienvenido.
+                <br>
+                **¡Haz tu aporte voluntario para este proyecto!**
+            </p>
+            <a href="https://www.paypal.com/ncp/payment/PA7EYZ9Z8TE3Y" target="_blank" class="mt-6 inline-block bg-[#e45d17] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300 text-center">
+                Haz tu aporte voluntario
+            </a>
         </section>
 
         <!-- Sección de preguntas e intereses -->
@@ -174,39 +248,33 @@
                 <p class="mt-4 text-xl font-bold"></p>
                 <!-- Botón de listado A-B -->
                 <a href="https://drive.google.com/file/d/1gjxOYU4XM3SLWIbt_9uTZzrzjc8jyppS/view?usp=drivesdk" target="_blank" class="mt-6 w-full md:w-auto bg-[#e45d17] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300 text-center">
-                    Listado A-B Pioneros I
+                    Descarga listado A-B 
                 </a>
             </div>
         </div>
         
         <!-- Galería de imágenes - Sección nueva -->
-        <section id="gallery-section" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mt-8 mb-8" style="display: none;">
+        <section id="gallery-section" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mt-8 mb-8 relative" style="display: none;">
             <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center mb-6">Galería de Imágenes</h3>
+            
+            <!-- Nuevo botón para cerrar la galería en la esquina superior derecha -->
+            <button id="close-gallery-btn" class="absolute top-4 right-4 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300">
+                Cerrar Galería
+            </button>
+
             <div id="image-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Las imágenes se cargarán dinámicamente aquí -->
             </div>
         </section>
 
-        <!-- Botones de compra y redes sociales -->
-        <div class="flex flex-col md:flex-row justify-center items-center mt-12 space-y-6 md:space-y-0 md:space-x-8">
-            <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" target="_blank" class="w-full md:w-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 text-center">
-                Visita nuestra página de facebook
-            </a>
-            <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" target="_blank" class="w-full md:w-auto bg-[#e45d17] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#cf5114] transition-colors duration-300 text-center">
-                Compra el libro
-            </a>
-            <!-- Nuevo botón de galería con un ID para JavaScript -->
-            <button id="toggle-gallery-btn" class="w-full md:w-auto bg-gray-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300 text-center">
-                Galería
-            </button>
-        </div>
-
     </main>
 
-    <!-- Modal para la imagen expandida -->
+    <!-- Modal para la imagen expandida (con botones de carrusel) -->
     <div id="image-modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="imgExpanded">
+        <a class="prev" id="prev-img-btn">&#10094;</a>
+        <a class="next" id="next-img-btn">&#10095;</a>
     </div>
 
     <!-- Modal para mensajes de alerta y listas -->
@@ -223,126 +291,6 @@
     </footer>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, addDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Variables globales para la configuración de Firebase
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        // --- Inicialización y Autenticación de Firebase ---
-        let app, db, auth;
-        let unsubscribeSignatures = null; // Para manejar la desuscripción del listener
-
-        async function initializeFirebase() {
-            try {
-                if (Object.keys(firebaseConfig).length > 0) {
-                    app = initializeApp(firebaseConfig);
-                    db = getFirestore(app);
-                    auth = getAuth(app);
-
-                    // Iniciar sesión con token personalizado o de forma anónima
-                    if (initialAuthToken) {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                        console.log("Sesión iniciada con token personalizado.");
-                    } else {
-                        await signInAnonymously(auth);
-                        console.log("Sesión iniciada de forma anónima.");
-                    }
-                } else {
-                    console.error("Firebase config está vacío. No se puede inicializar Firebase.");
-                }
-            } catch (error) {
-                console.error("Error al inicializar Firebase:", error);
-            }
-        }
-        
-        // Llamar a la función de inicialización
-        initializeFirebase();
-
-        // --- Lógica de Firestore ---
-
-        // Función para guardar una nueva firma en Firestore
-        async function saveSignature(name) {
-            if (!db) {
-                showMessage("Error: La base de datos no está disponible. Por favor, recarga la página.");
-                return;
-            }
-
-            try {
-                const signaturesCollectionRef = collection(db, `artifacts/${appId}/public/data/signatures`);
-                await addDoc(signaturesCollectionRef, {
-                    name: name,
-                    timestamp: new Date()
-                });
-                showMessage(`¡Gracias por firmar, ${name}! Tu firma ha sido registrada.`);
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                showMessage("Error al guardar la firma. Por favor, inténtalo de nuevo.");
-            }
-        }
-
-        // Función para mostrar las firmas en el modal
-        function displaySignatures(signatures) {
-            const modalContent = document.getElementById("modal-content-text");
-            modalContent.innerHTML = ''; // Limpiar contenido anterior
-
-            if (signatures.length === 0) {
-                modalContent.innerHTML = `
-                    <h3 class="text-xl font-bold mb-4">Firmas Registradas</h3>
-                    <p>Aún no hay firmas. ¡Sé el primero en firmar!</p>
-                `;
-            } else {
-                // Ordenar firmas por fecha en orden descendente (las más recientes primero)
-                signatures.sort((a, b) => {
-                    const timeA = a.timestamp ? a.timestamp.seconds : 0;
-                    const timeB = b.timestamp ? b.timestamp.seconds : 0;
-                    return timeB - timeA;
-                });
-
-                const listHTML = signatures.map(sig => {
-                    const date = sig.timestamp ? new Date(sig.timestamp.seconds * 1000).toLocaleDateString() : 'Fecha desconocida';
-                    return `<li class="border-b border-gray-200 py-2 last:border-b-0 text-left">${sig.name} - <span class="text-gray-500 text-sm">${date}</span></li>`;
-                }).join('');
-
-                modalContent.innerHTML = `
-                    <h3 class="text-xl font-bold mb-4">Firmas Registradas</h3>
-                    <ul class="list-none text-left">${listHTML}</ul>
-                `;
-            }
-        }
-
-        // Función para cargar las firmas al abrir el modal y mantener la escucha
-        async function loadAndListenForSignatures() {
-            if (!db) {
-                displaySignatures([]); // Muestra un estado vacío si no hay db
-                return;
-            }
-
-            const signaturesCollectionRef = collection(db, `artifacts/${appId}/public/data/signatures`);
-            
-            // Muestra un estado de carga mientras se obtienen los datos
-            const modalContent = document.getElementById("modal-content-text");
-            modalContent.innerHTML = `
-                <h3 class="text-xl font-bold mb-4">Cargando Firmas...</h3>
-                <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#e45d17] mx-auto"></div>
-            `;
-            
-            // Suscribe al listener de onSnapshot
-            unsubscribeSignatures = onSnapshot(signaturesCollectionRef, (querySnapshot) => {
-                const signatures = [];
-                querySnapshot.forEach((doc) => {
-                    signatures.push(doc.data());
-                });
-                displaySignatures(signatures);
-            }, (error) => {
-                console.error("Error al escuchar firmas:", error);
-                showMessage("Error al cargar las firmas. Por favor, inténtalo de nuevo.");
-            });
-        }
-
         // --- Lógica de la Interfaz de Usuario y Manejadores de Eventos ---
 
         // Función para mostrar un mensaje simple en el modal
@@ -356,31 +304,66 @@
         // Modal para expandir imágenes
         const imageModal = document.getElementById("image-modal");
         const modalImg = document.getElementById("imgExpanded");
-        const myImg = document.getElementById("myImg");
-        const qrImg = document.getElementById("qrImg");
+        const myImg = document.getElementById("myImg"); // Imagen de la portada del libro
+        const qrImg = document.getElementById("qrImg"); // Imagen del QR
         const imageCloseBtn = document.querySelector("#image-modal .close");
+        const prevImgBtn = document.getElementById('prev-img-btn');
+        const nextImgBtn = document.getElementById('next-img-btn');
 
-        function openImageModal(imageSrc) {
+        let currentImageIndex = 0; // Para rastrear la imagen actual en la galería
+        let activeGalleryImages = []; // Array de imágenes de la galería activa (puede ser solo la portada/qr o la galería completa)
+
+        function openImageModal(imageSrc, sourceArray = [], initialIndex = 0) {
             imageModal.style.display = "flex";
             modalImg.src = imageSrc;
+            activeGalleryImages = sourceArray;
+            currentImageIndex = initialIndex;
+
+            // Mostrar/ocultar botones de navegación si hay más de una imagen en la "galería activa"
+            if (activeGalleryImages.length > 1) {
+                prevImgBtn.style.display = 'block';
+                nextImgBtn.style.display = 'block';
+            } else {
+                prevImgBtn.style.display = 'none';
+                nextImgBtn.style.display = 'none';
+            }
         }
 
-        myImg.onclick = function() { openImageModal(this.src); };
-        qrImg.onclick = function() { openImageModal(this.src); };
+        // Funciones para navegar en el carrusel
+        function showNextImage() {
+            if (activeGalleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % activeGalleryImages.length;
+            modalImg.src = activeGalleryImages[currentImageIndex];
+        }
+
+        function showPrevImage() {
+            if (activeGalleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex - 1 + activeGalleryImages.length) % activeGalleryImages.length;
+            modalImg.src = activeGalleryImages[currentImageIndex];
+        }
+
+        // Eventos para abrir el modal (ahora con soporte para carrusel)
+        myImg.onclick = function() {
+            // Abrir la imagen de la portada. No forma parte de la galería principal, así que no hay navegación aquí.
+            openImageModal(this.src, [this.src], 0);
+        };
+        qrImg.onclick = function() {
+            // Abrir la imagen del QR. No forma parte de la galería principal.
+            openImageModal(this.src, [this.src], 0);
+        };
+
+        // Eventos para los botones de navegación del carrusel
+        prevImgBtn.onclick = showPrevImage;
+        nextImgBtn.onclick = showNextImage;
+
         imageCloseBtn.onclick = function() { imageModal.style.display = "none"; };
 
-        // Modal para mensajes y lista de firmas
+        // Modal para mensajes
         const messageModal = document.getElementById("message-modal");
         const messageCloseBtn = document.querySelector("#message-modal .close-btn");
 
         messageCloseBtn.onclick = function() {
             messageModal.style.display = "none";
-            // Desuscribir el listener cuando el modal se cierra
-            if (unsubscribeSignatures) {
-                unsubscribeSignatures();
-                unsubscribeSignatures = null;
-                console.log("Listener de firmas desuscrito.");
-            }
         };
 
         window.onclick = function(event) {
@@ -389,40 +372,14 @@
             }
             if (event.target == messageModal) {
                 messageModal.style.display = "none";
-                // Desuscribir el listener si se cierra al hacer clic fuera
-                if (unsubscribeSignatures) {
-                    unsubscribeSignatures();
-                    unsubscribeSignatures = null;
-                    console.log("Listener de firmas desuscrito.");
-                }
             }
         };
-
-        // Manejador para el envío del formulario de firma
-        const signatureForm = document.getElementById('signature-form');
-        signatureForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const signatureInput = document.getElementById('signature-input');
-            const name = signatureInput.value.trim();
-            if (name) {
-                saveSignature(name);
-                signatureInput.value = ''; // Limpiar el campo
-            } else {
-                showMessage('Por favor, ingresa tu nombre y país para firmar.');
-            }
-        });
-
-        // Manejador para el botón "Ver Firmas"
-        const viewSignaturesBtn = document.getElementById('view-signatures-btn');
-        viewSignaturesBtn.addEventListener('click', function() {
-            messageModal.style.display = "flex";
-            loadAndListenForSignatures(); // Carga y activa la escucha al abrir el modal
-        });
 
         // --- Lógica para la Galería de Imágenes ---
         const imageGallery = document.getElementById('image-gallery');
         const gallerySection = document.getElementById('gallery-section');
-        const toggleGalleryBtn = document.getElementById('toggle-gallery-btn');
+        const dropdownGalleryBtn = document.getElementById('dropdown-gallery-btn'); // ID del enlace en el dropdown
+        const closeGalleryBtn = document.getElementById('close-gallery-btn'); // Nuevo botón para cerrar la galería
         const galleryImages = [
             "https://imgur.com/NBFwmhC.jpg",
             "https://imgur.com/RZvP7QG.jpg",
@@ -444,33 +401,47 @@
         // Cargar y mostrar las imágenes de la galería
         function loadGalleryImages() {
             imageGallery.innerHTML = ''; // Limpiar galería antes de cargar
-            galleryImages.forEach(src => {
+            galleryImages.forEach((src, index) => {
                 const img = document.createElement('img');
                 img.src = src;
-                img.alt = "Imagen de la galería del libro";
+                img.alt = `Imagen ${index + 1} de la galería del libro`;
                 img.className = "w-full h-auto rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300";
-                img.onclick = () => openImageModal(img.src);
+                // Al hacer clic en una imagen de la galería, se abre con funcionalidad de carrusel
+                img.onclick = () => openImageModal(img.src, galleryImages, index);
                 imageGallery.appendChild(img);
             });
         }
         
-        // Manejador para el botón de galería (toggle)
-        toggleGalleryBtn.addEventListener('click', function() {
-            if (gallerySection.style.display === "none") {
-                gallerySection.style.display = "block";
-                toggleGalleryBtn.textContent = "Cerrar Galería";
-                // Desplazarse a la galería para que el usuario la vea
-                gallerySection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                gallerySection.style.display = "none";
-                toggleGalleryBtn.textContent = "Galería";
-            }
-        });
+        // Función para cerrar la galería y subir al inicio
+        function closeGalleryAndScrollToTop() {
+            gallerySection.style.display = "none";
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazarse al inicio de la página
+        }
+
+        // Manejador para el enlace de "Galería" en el dropdown (toggle)
+        if (dropdownGalleryBtn) { 
+            dropdownGalleryBtn.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                if (gallerySection.style.display === "none" || gallerySection.style.display === "") {
+                    gallerySection.style.display = "block";
+                    gallerySection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    closeGalleryAndScrollToTop();
+                }
+            });
+        }
+
+        // Manejador para el nuevo botón "Cerrar Galería" dentro de la sección
+        if (closeGalleryBtn) {
+            closeGalleryBtn.addEventListener('click', function() {
+                closeGalleryAndScrollToTop();
+            });
+        }
 
         // Llamar a la función para cargar las imágenes cuando la página esté lista
         window.addEventListener('load', loadGalleryImages);
 
-        // --- Nuevo Manejador para el formulario de comentarios ---
+        // --- Manejador para el formulario de comentarios ---
         const commentForm = document.getElementById('comment-form');
         commentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
