@@ -84,7 +84,8 @@
         .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-        .dropdown:hover .dropdown-content {
+        /* Clase para mostrar el dropdown al hacer click */
+        .dropdown-content.show-dropdown {
             display: block;
         }
         /* Estilos para los botones del carrusel en el modal */
@@ -121,18 +122,18 @@
 
     <!-- Encabezado con fondo naranja -->
      <header class="bg-[#e45d17] text-white p-4 md:p-8 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left relative">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight">PIONEROS DE CORONEL PRINGLES I 1870-1903</h1>
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 md:mb-0">PIONEROS DE CORONEL PRINGLES I 1870-1903</h1>
            
             <!-- Menú desplegable en la esquina superior derecha -->
-            <div class="dropdown absolute top-4 right-4 md:static md:ml-auto">
-                <button class="bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 flex items-center">
+            <div class="dropdown md:ml-auto">
+                <button class="bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 flex items-center" aria-haspopup="true" aria-expanded="false" id="dropdown-toggle-btn">
                     Menú
                     <svg class="ml-2 -mr-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content" aria-labelledby="dropdown-toggle-btn">
                     <a href="#" id="dropdown-gallery-btn">Galería</a>
                     <a href="https://drive.google.com/file/d/1gjxOYU4XM3SLWIbt_9uTZzrzjc8jyppS/view?usp=drivesdk" target="_blank">Descarga Listado A-B Pioneros I</a>
                     <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" target="_blank">Página de Facebook</a>
@@ -182,7 +183,7 @@
                     </a>
                 </div>
                 <div class="text-center">
-                    <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" class="block hover:scale-110 transition-transform duration-300" target="_blank">
+                    <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" target="_blank">
                         <img src="https://imgur.com/tRYqDpP.jpg" alt="Código QR Facebook" class="w-32 h-32 rounded-lg border-2 border-gray-300 p-1">
                         <p class="mt-2 text-sm font-semibold">Mercado libre</p>
                     </a>
@@ -373,7 +374,29 @@
             if (event.target == messageModal) {
                 messageModal.style.display = "none";
             }
+            // Cerrar el dropdown si se hace clic fuera de él
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            const dropdownToggleButton = document.getElementById('dropdown-toggle-btn');
+
+            if (!dropdown.contains(event.target)) {
+                dropdownContent.classList.remove('show-dropdown');
+                dropdownToggleButton.setAttribute('aria-expanded', 'false');
+            }
         };
+
+        // --- Lógica para el Menú Desplegable (Toggle on Click) ---
+        const dropdownToggleButton = document.getElementById('dropdown-toggle-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        if (dropdownToggleButton && dropdownContent) {
+            dropdownToggleButton.addEventListener('click', function(event) {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                dropdownContent.classList.toggle('show-dropdown');
+                this.setAttribute('aria-expanded', !isExpanded);
+                event.stopPropagation(); // Evita que el clic se propague al window y cierre el menú inmediatamente
+            });
+        }
 
         // --- Lógica para la Galería de Imágenes ---
         const imageGallery = document.getElementById('image-gallery');
@@ -428,6 +451,9 @@
                 } else {
                     closeGalleryAndScrollToTop();
                 }
+                // Asegúrate de cerrar el dropdown después de seleccionar "Galería"
+                dropdownContent.classList.remove('show-dropdown');
+                dropdownToggleButton.setAttribute('aria-expanded', 'false');
             });
         }
 
@@ -481,3 +507,4 @@
     </script>
 </body>
 </html>
+
