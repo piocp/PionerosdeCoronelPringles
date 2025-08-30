@@ -209,6 +209,15 @@
             </a>
         </section>
 
+        <!-- Sección de Compra Anticipada -->
+        <section id="compra-anticipada" class="bg-white rounded-xl shadow-lg p-6 md:p-10 mt-8 mb-8 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-brown-custom mb-2">COMPRA ANTICIPADA</h3>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">Solo para compras en Argentina</p>
+            <div class="flex justify-center">
+                <img id="anticipadaImg" src="https://imgur.com/2u3P8NU.jpg" alt="Flyer de compra anticipada del libro" class="w-full md:max-w-xl rounded-lg shadow-lg border-4 border-gray-300 cursor-pointer hover:scale-105 transition-transform duration-300">
+            </div>
+        </section>
+
         <!-- Sección de preguntas e intereses -->
         <section id="comentarios" class="bg-white rounded-xl shadow-lg p-6 md:p-10">
             <h3 class="text-2xl md:text-3xl font-bold text-brown-custom text-center">Preguntas, Intereses y Observaciones</h3>
@@ -309,6 +318,7 @@
         const modalImg = document.getElementById("imgExpanded");
         const myImg = document.getElementById("myImg"); // Imagen de la portada del libro
         const qrImg = document.getElementById("qrImg"); // Imagen del QR
+        const anticipadaImg = document.getElementById("anticipadaImg"); // La nueva imagen de compra anticipada
         const imageCloseBtn = document.querySelector("#image-modal .close");
         const prevImgBtn = document.getElementById('prev-img-btn');
         const nextImgBtn = document.getElementById('next-img-btn');
@@ -352,6 +362,11 @@
         };
         qrImg.onclick = function() {
             // Abrir la imagen del QR. No forma parte de la galería principal.
+            openImageModal(this.src, [this.src], 0);
+        };
+        
+        // Evento para la nueva imagen de "Compra Anticipada"
+        anticipadaImg.onclick = function() {
             openImageModal(this.src, [this.src], 0);
         };
 
@@ -518,3 +533,4 @@
     </script>
 </body>
 </html>
+
