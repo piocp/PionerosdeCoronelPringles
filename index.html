@@ -1,4 +1,4 @@
-YPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -80,6 +80,9 @@ YPE html>
             text-decoration: none;
             display: block;
             text-align: left;
+            /* Asegura que no haya estilos de texto adicionales como negrita o color */
+            font-weight: normal; 
+            color: black !important;
         }
         .dropdown-content a:hover {
             background-color: #f1f1f1;
@@ -116,6 +119,12 @@ YPE html>
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,1);
         }
+        /* Estilo para el botón de dos líneas */
+        .two-line-btn {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -140,6 +149,8 @@ YPE html>
                     <a href="https://www.facebook.com/people/Investigaci%C3%B3n-Hist%C3%B3rica-Coronel-Pringles/100068762413207/?name=xhp_nt__fb__action__open_user" target="_blank">Página de Facebook</a>
                     <a href="https://articulo.mercadolibre.com.ar/MLA-1515266761-pioneros-de-coronel-pringles-1870-1903-i-_JM#polycard_client=search-nordic&position=36&search_layout=stack&type=item&tracking_id=2893e5d4-75db-49c8-8ecf-e9f2ec34ee24&wid=MLA1515266761&sid=search" target="_blank">Compra el libro</a>
                     <a href="https://www.paypal.com/ncp/payment/PA7EYZ9Z8TE3Y" target="_blank">Haz tu aporte voluntario</a>
+                    <!-- Elemento para libros en italiano en el menú desplegable (al final y sin estilos destacados) -->
+                    <a href="https://payhip.com/b/p7jDI" target="_blank">Libri in italiano (libros en italiano)</a>
                 </div>
             </div>
         </div>
@@ -161,12 +172,19 @@ YPE html>
                     <div class="text-center">
                         <p class="text-4xl font-extrabold text-[#e45d17]">$43.000</p>
                         <p class="text-sm font-semibold text-gray-500">Precio del libro</p>
-                        <!-- Nuevo letrero "autofinanciemos la cultura" con tamaño responsivo y color naranja -->
+                        <!-- Frase destacada -->
                         <div class="mt-4 text-center">
                            <p class="text-2xl md:text-3xl font-extrabold text-[#e45d17]">Autofinanciemos la cultura</p>
                         </div>
                     </div>
                 </div>
+                 <!-- Botón para la edición en italiano con texto dividido en dos líneas -->
+                <a href="https://payhip.com/b/p7jDI" target="_blank" class="mt-6 w-full inline-block bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 text-center text-lg">
+                    <div class="two-line-btn">
+                        <span>Libri in italiano</span>
+                        <span class="text-sm font-normal">(libros en italiano)</span>
+                    </div>
+                </a>
             </div>
         </div>
 
